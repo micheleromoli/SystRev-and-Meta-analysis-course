@@ -1,0 +1,31 @@
+R meta-analysis script example
+
+#importing libraries needed
+library(meta)
+library(readxl)
+
+#importing the database
+d2 <- read_excel("~/Gender_stroke/genderstroke_meta.xlsx")
+
+#calculating the estimates
+res <- metabin(event.e = WmRS02, n.e = Wn,
+               event.c = MmRS02, n.c = Mn,
+               studlab = paste(Author,Year), 
+               sm = "OR",
+               data = d2)
+
+#display summary of results
+summary(res)
+
+#publication bias assessment
+metabias(res, method.bias = "linreg", k.min = 2)
+funnel.meta(res, studlab=TRUE, pos.studlab = 4)
+
+#provide graphical representation
+forest(res, sortvar = Author, col.square = "blue", 
+       random = TRUE, common=FALSE, 
+       lab.e="Women", lab.c="Men",
+       label.left = "favors men", label.right = "favors women",
+       pooled.events=TRUE, pooled.totals=TRUE,
+       col.diamond = "light blue", col.diamond.lines = "black")
+
