@@ -3,6 +3,8 @@ Materials for SR and Meta courses
 
 Free and open-source programs only to conduct systematic reviews and meta-analysis
 
+0. Get familiar with PROSPERO https://www.crd.york.ac.uk/prospero/ and OSF https://osf.io/
+
 1. Register in Rayyan @ https://www.rayyan.ai/
 
 2. Register, download and install a free reference manager (if you already have one stay with what you have)
